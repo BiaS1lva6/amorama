@@ -3,15 +3,13 @@ footer {
     font-size: 20px;
     padding: 24px;
     font-weight: bolder;
-    color: #f9d3b4;
+    color: #757575;
   }
   
   footer a {
     text-decoration: none;
-    color: #f9d3b4;
+    color: #757575;
   }
   
-  footer p ion-icon {
-    color: #ff0000;
-  }
+
   

@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.js";
 import "./App.css";
 import Footer from "./components/footer/Footer";
 import MovieCard from "./components/movieCard/MovieCard";
-import Logo from "./assets/devflix.png";
+import Logo from "./assets/logo.png";
 import Lupa from "./assets/search.svg";
 
 const App = () => {
@@ -35,16 +37,17 @@ const App = () => {
 
   return (
     <div id="app">
-      <img className="logo" src={Logo} alt="" />
+      <img className="logo" src={Logo} alt=""  />
 
-      <div className="search">
+      <div className="search fundoP">
         <input
+        className="inputBg"
           onKeyDown={handleKeyPress}
           onChange={(e) => setSearch(e.target.value)}
           type="text"
           placeholder="Pesquise por filmes"
         />
-        <img onClick={() => searchMovies(search)} src={Lupa} alt="" />
+        <img  onClick={() => searchMovies(search)} src={Lupa} alt="" />
       </div>
 
       {movies?.length > 0 ? (
@@ -54,7 +57,7 @@ const App = () => {
           ))}
         </div>
       ) : (
-        <h2 className="empty">😢 Filme não encontrado 😢</h2>
+        <h2 className="empty"> Filme não encontrado 🫰🏻</h2>
       )}
 
       <Footer
