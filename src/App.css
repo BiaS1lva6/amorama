@@ -72,7 +72,7 @@ body {
   justify-content: center;
   align-items: center;
 
-  color: #f9d3b4;
+  color: #757575;
 }
 
 .container {
@@ -115,4 +115,12 @@ body {
     width: 100%;
     margin: 1rem;
   }
+}
+
+.fundoP{
+  background-color: #FFBCD9 !important;
+}
+
+.inputBg{
+  background-color: #FFBCD9 !important;
 }
