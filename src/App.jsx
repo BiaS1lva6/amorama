@@ -13,8 +13,8 @@ const App = () => {
 
   //Utilizando chave de API do arquivo .env
   //const apiKey = import.meta.env.VITE_OMDB_API_KEY;
-  const apiKey = "ca1cf1b9f1699cfb91032672dd091d4d"; 
-  const apiUrl = `https://api.themoviedb.org/3/discover/tv${apiKey}`;
+  const apiKey = "e4d577fa"; 
+  const apiUrl = `https://omdbapi.com/?apikey=${apiKey}`;
 
   //Alimentando com dados para não ficar nulo com useEffect
   useEffect(() => {
