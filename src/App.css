@@ -1,43 +1,36 @@
-@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 :root {
   --font-raleway: "Raleway", sans-serif;
+  --bs-body-bg: #d3b1c1;
 }
 
-* {
-  margin: 0;
-  border: 0;
-  box-sizing: border-box;
+[data-bs-theme="dark"] {
+  --bs-body-bg: #000;
 }
 
 body {
   font-family: var(--font-raleway);
-  background: #000 ;
-
 }
 
-
-
+/* Estilização do container principal */
 #app {
-  padding: 4em;
+  padding: 4rem;
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.logo {
-  max-width: 100%;
-  overflow: hidden;
-}
-
+/* Logo responsiva */
 .logo img {
-  width: 70%;
+  max-width: 70%;
   height: auto;
   display: block;
   margin: auto;
 }
 
+/* Barra de pesquisa */
 .search {
   width: 70%;
   margin: 4rem 0 2rem;
@@ -46,20 +39,18 @@ body {
   justify-content: center;
   padding: 1.5rem 1.75rem;
   border-radius: 4rem;
-  background: #1f2123;
-  box-shadow: 5px 5px 7px #1c1d1f, -5px -5px 7px #222527;
-  -webkit-box-shadow: 5px 5px 7px #1c1d1f, -5px -5px 7px #222527;
+  background: var(--bs-primary);
+  box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.2);
 }
 
 .search input {
   flex: 1;
   border: none;
-  padding-right: 1rem;
   outline: none;
-  color: #a1a1a1;
-  background: #1f2123;
   font-size: 1.5rem;
   font-weight: 500;
+  color: #333;
+  background: transparent;
 }
 
 .search img {
@@ -68,16 +59,15 @@ body {
   cursor: pointer;
 }
 
+/* Seção vazia */
 .empty {
   width: 100%;
   margin-top: 3rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
+  text-align: center;
   color: #757575;
 }
 
+/* Grid responsivo de filmes */
 .container {
   width: 100%;
   margin-top: 3rem;
@@ -88,45 +78,30 @@ body {
   max-width: 2000px;
 }
 
-@media screen and (max-width: 600px) {
-  .app {
-    padding: 4rem 2rem;
-  }
+/* Responsividade */
+@media (max-width: 600px) {
   .search {
-    padding: 1rem 1.75rem;
     width: 100%;
+    padding: 1rem;
   }
   .search input {
     font-size: 1rem;
   }
   .search img {
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
   }
 }
 
-@media screen and (max-width: 400px) {
-  .app {
-    padding: 4rem 1rem;
-  }
+@media (max-width: 400px) {
   h1 {
     font-size: 2rem;
   }
   .container {
     margin-top: 2rem;
   }
-  .movie {
-    width: 100%;
-    margin: 1rem;
-  }
 }
 
-.fundoP{
-  background-color: #FFBCD9 !important;
+.bg-custom {
+  background-color: var(--bs-primary) !important;
 }
-
-.inputBg{
-  background-color: #FFBCD9 !important;
-}
-
-

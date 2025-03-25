@@ -20,7 +20,7 @@ const MovieCard = ({ Poster, Title, Type, Year, imdbID, apiUrl }) => {
 
         <div className={`card-body bg-dark text-light position-absolute bottom-0 w-100 p-3 ${styles.cardBody}`}>
           <span className="text-uppercase fw-bold small text-secondary">{Type}</span>
-          <h3 className="mt-2 text-pink">{Title}</h3>
+          <h3 className="mt-2" style={{color: '#FFBCD9'}}>{Title}</h3>
         </div>
       </div>
 

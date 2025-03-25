@@ -8,51 +8,53 @@ import Logo from "./assets/logo.png";
 import Lupa from "./assets/search.svg";
 
 const App = () => {
+  const mudaTema = () => {
+    const tema = window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
+    document.documentElement.setAttribute("data-bs-theme", tema);
+  };
+
+  useEffect(() => {
+    mudaTema();
+    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", mudaTema);
+  }, []);
+
   const [search, setSearch] = useState("");
   const [movies, setMovies] = useState([]);
 
-  //Utilizando chave de API do arquivo .env
-  //const apiKey = import.meta.env.VITE_OMDB_API_KEY;
   const apiKey = "e4d577fa";
   const apiUrl = `https://omdbapi.com/?apikey=${apiKey}`;
 
-  
-
-  //Alimentando com dados para não ficar nulo com useEffect
   useEffect(() => {
     searchMovies("Barbie");
   }, []);
 
-  //criando a conexão com a API e trazendo informações
   const searchMovies = async (title) => {
     const response = await fetch(`${apiUrl}&s=${title}`);
     const data = await response.json();
-
-    //alimentando o movies
     setMovies(data.Search);
   };
 
-  //e = evento | ao clicar ou digitar acontece algo
   const handleKeyPress = (e) => {
-    e.key === "Enter" && searchMovies(search);
+    if (e.key === "Enter") {
+      searchMovies(search);
+    }
   };
 
+  return (
+    <div id="app">
+      <img className="logo" src={Logo} alt="Logo" />
 
-
-return (
- <>
-    <div id="app" >
-      <img className="logo" src={Logo} alt="" />
-
-      <div className="search fundoP">
+      <div className="search bg-custom">
         <input
-          className="inputBg"
+          className="form-control border-0"
           onKeyDown={handleKeyPress}
           onChange={(e) => setSearch(e.target.value)}
           type="text"
           placeholder="Pesquise por filmes"
         />
-        <img onClick={() => searchMovies(search)} src={Lupa} alt="" />
+        <img onClick={() => searchMovies(search)} src={Lupa} alt="Pesquisar" />
       </div>
 
       {movies?.length > 0 ? (
@@ -62,18 +64,12 @@ return (
           ))}
         </div>
       ) : (
-        <h2 className="empty"> Filme não encontrado 🫰🏻</h2>
+        <h2 className="empty">Nenhum K-Drama encontrado 🫰🏻</h2>
       )}
 
-      <Footer
-        devName={" Livia e Bia "}
-        devLink={"https://github.com/BiaS1lva6"}
-      />
+      <Footer devName={"Livia e Bia"} devLink={"https://github.com/BiaS1lva6"} />
     </div>
-    </>
-)
-}
-
-
+  );
+};
 
 export default App;
