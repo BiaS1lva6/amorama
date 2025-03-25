@@ -16,6 +16,8 @@ const App = () => {
   const apiKey = "e4d577fa";
   const apiUrl = `https://omdbapi.com/?apikey=${apiKey}`;
 
+  
+
   //Alimentando com dados para não ficar nulo com useEffect
   useEffect(() => {
     searchMovies("Barbie");
