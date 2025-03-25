@@ -22,7 +22,7 @@ const MovieCard = (props) => {
 
         <div className="card-body bg-dark text-light position-absolute bottom-0 start-0 end-0 p-3" style={{ zIndex: 2, transition: 'background 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)' }}>
           <span className="text-uppercase fw-bold" style={{ fontSize: '13px', letterSpacing: '2px' }}>{props.Type}</span>
-          <h3 className="mt-2 text-warning">{props.Title}</h3>
+          <h3 className="mt-2" style={{ color: '#FFBCD9' }}>{props.Title}</h3>
         </div>
       </div>
       {isModalOpen && (
