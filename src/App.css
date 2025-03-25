@@ -12,8 +12,11 @@
 
 body {
   font-family: var(--font-raleway);
-  background: #212426;
+  background: #000 ;
+
 }
+
+
 
 #app {
   padding: 4em;
@@ -125,3 +128,5 @@ body {
 .inputBg{
   background-color: #FFBCD9 !important;
 }
+
+

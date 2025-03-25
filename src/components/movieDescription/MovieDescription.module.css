@@ -1,1 +1,36 @@
-
+.modal-backdrop {
+    background: rgba(0, 0, 0, 0.4) !important;
+  }
+  
+  .modal-content {
+    border-radius: 10px;
+    background: #fff;
+    color: #757575;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+  }
+  
+  .modal-body img {
+    max-height: 480px;
+    object-fit: cover;
+  }
+  
+  .bg-gradient {
+    background: linear-gradient(to top, #000, rgba(0, 0, 0, 0.1));
+  }
+  
+  .modal-footer {
+    text-align: left;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .modal-dialog {
+      max-width: 550px;
+    }
+  }
+  
+  @media screen and (max-width: 430px) {
+    .modal-dialog {
+      max-width: 320px;
+      margin-top: 2em;
+    }
+  }

@@ -13,7 +13,7 @@ const App = () => {
 
   //Utilizando chave de API do arquivo .env
   //const apiKey = import.meta.env.VITE_OMDB_API_KEY;
-  const apiKey = "e4d577fa"; 
+  const apiKey = "e4d577fa";
   const apiUrl = `https://omdbapi.com/?apikey=${apiKey}`;
 
   //Alimentando com dados para não ficar nulo com useEffect
@@ -35,19 +35,22 @@ const App = () => {
     e.key === "Enter" && searchMovies(search);
   };
 
-  return (
-    <div id="app">
-      <img className="logo" src={Logo} alt=""  />
+
+
+return (
+ <>
+    <div id="app" >
+      <img className="logo" src={Logo} alt="" />
 
       <div className="search fundoP">
         <input
-        className="inputBg"
+          className="inputBg"
           onKeyDown={handleKeyPress}
           onChange={(e) => setSearch(e.target.value)}
           type="text"
           placeholder="Pesquise por filmes"
         />
-        <img  onClick={() => searchMovies(search)} src={Lupa} alt="" />
+        <img onClick={() => searchMovies(search)} src={Lupa} alt="" />
       </div>
 
       {movies?.length > 0 ? (
@@ -65,7 +68,10 @@ const App = () => {
         devLink={"https://github.com/BiaS1lva6"}
       />
     </div>
-  );
-};
+    </>
+)
+}
+
+
 
 export default App;

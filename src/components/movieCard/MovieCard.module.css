@@ -1,0 +1,32 @@
+.movie {
+    width: 310px;
+    height: 460px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .movie:hover {
+    transform: scale(1.05);
+  }
+  
+  .overlay {
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+  }
+  
+  .movie:hover .overlay {
+    opacity: 1;
+  }
+  
+  .cardBody {
+    z-index: 2;
+    transition: background 0.4s ease-in-out;
+  }
+  
+  .text-pink {
+    color: #FFBCD9;
+  }
+  
