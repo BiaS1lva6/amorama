@@ -22,9 +22,13 @@ body {
   justify-content: center;
 }
 
-/* Logo responsiva */
+.logo {
+  max-width: 100%;
+  overflow: hidden;
+}
+
 .logo img {
-  max-width: 70%;
+  width: 70%;
   height: auto;
   display: block;
   margin: auto;
