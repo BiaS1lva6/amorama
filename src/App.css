@@ -1,86 +1,37 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 :root {
-  --font-raleway: "Raleway", sans-serif;
-  --bs-body-bg: #d3b1c1;
-  --bs-gradient: linear-gradient(to top, rgb(186, 51, 101), pink, transparent);
+  --bs-body-bg: #d3b1c1 !important;
+  --bs-gradient: linear-gradient(
+    to top,
+    rgb(186, 51, 101),
+    pink,
+    transparent
+  ) !important;
 }
 
 [data-bs-theme="dark"] {
-  --bs-body-bg: #000;
+  --bs-body-bg: #000 !important;
 }
 
 body {
   font-family: var(--font-raleway);
 }
 
-/* Estilização do container principal */
-#app {
-  padding: 4rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.logo {
-  max-width: 100%;
-  overflow: hidden;
-}
-
-.logo img {
-  width: 70%;
-  height: auto;
-  display: block;
-  margin: auto;
-}
-
 /* Barra de pesquisa */
 .search {
-  width: 70%;
-  margin: 4rem 0 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1.5rem 1.75rem;
-  border-radius: 4rem;
   background: var(--bs-primary);
   box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.2);
+  color: #333 !important;
 }
 
-.search input {
-  flex: 1;
-  border: none;
-  outline: none;
-  font-size: 1.5rem;
-  font-weight: 500;
-  color: #333;
-  background: transparent;
+.search input::placeholder {
+  color: #333 !important;
 }
 
-.search img {
-  width: 35px;
-  height: 35px;
-  cursor: pointer;
-}
-
-/* Seção vazia */
+/* Mensagem de busca vazia */
 .empty {
-  width: 100%;
-  margin-top: 3rem;
-  text-align: center;
   color: #757575;
-}
-
-/* Grid responsivo de filmes */
-.container {
-  width: 100%;
-  margin-top: 3rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  max-width: 2000px;
 }
 
 /* Responsividade */
@@ -107,7 +58,6 @@ body {
   }
 }
 
-.bg-custom{
-  background-color: #FFBCD9 !important;
+.bg-custom {
+  background-color: #ffbcd9 !important;
 }
-
