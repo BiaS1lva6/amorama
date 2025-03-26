@@ -3,30 +3,50 @@ import MovieDescription from "../movieDescription/MovieDescription";
 import "bootstrap/dist/css/bootstrap.min.css";
 import styles from "./MovieCard.module.css";
 
-const MovieCard = ({ Poster, Title, Type, Year, imdbID, apiUrl }) => {
+const MovieCard = (props) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  return (
-    <>
+
+const poster = `https://image.tmdb.org/t/p/w300/${props.movie.poster_path}`
+const title = props.movie.title || props.movie.name || props.movie.original_title;
+
+return (
+  <>
+    <div
+      className={`card m-3 shadow-sm ${styles.movie}`}
+      onClick={() => setIsModalOpen(true)}
+    >
       <div
-        className={`card m-3 shadow-sm ${styles.movie}`}
-        onClick={() => setIsModalOpen(true)}
+        className={`card-img-overlay d-flex align-items-center justify-content-center ${styles.overlay}`}
       >
-        <div className={`card-img-overlay d-flex align-items-center justify-content-center ${styles.overlay}`}>
-          <p className="text-warning fw-bold">{Year}</p>
-        </div>
-
-        <img src={Poster} alt={`Poster do filme ${Title}`} className="card-img-top img-fluid" />
-
-        <div className={`card-body bg-dark text-light position-absolute bottom-0 w-100 p-3 ${styles.cardBody}`}>
-          <span className="text-uppercase fw-bold small text-secondary">{Type}</span>
-          <h3 className="mt-2" style={{color: '#FFBCD9'}}>{Title}</h3>
-        </div>
+        <p className="text-warning fw-bold">{props.movie.release_date}</p>
       </div>
 
-      {isModalOpen && <MovieDescription apiUrl={apiUrl} movieID={imdbID} click={() => setIsModalOpen(false)} />}
-    </>
-  );
-};
+      <img
+        src={poster}
+        alt={`Poster do filme ${title}`}
+        className="card-img-top img-fluid"
+      />
 
+      <div
+        className={`card-body bg-dark text-light position-absolute bottom-0 w-100 p-3 ${styles.cardBody}`}
+      >
+        <span className="text-uppercase fw-bold small text-secondary">
+          {props.movie.media_type || "Filme"}
+        </span>
+        <h3 className="mt-2" style={{ color: "#FFBCD9" }}>
+          {title}
+        </h3>
+      </div>
+    </div>
+
+    {isModalOpen && (
+      <MovieDescription
+        movie={props.movie}
+        click={() => setIsModalOpen(false)}
+      />
+    )}
+  </>
+);
+}
 export default MovieCard;

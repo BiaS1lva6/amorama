@@ -3,6 +3,7 @@
 :root {
   --font-raleway: "Raleway", sans-serif;
   --bs-body-bg: #d3b1c1;
+  --bs-gradient: linear-gradient(to top, rgb(186, 51, 101), pink, transparent);
 }
 
 [data-bs-theme="dark"] {

@@ -8,6 +8,18 @@ import Logo from "./assets/logo.png";
 import Lupa from "./assets/search.svg";
 
 const App = () => {
+
+
+  const options = {
+    method: 'GET',
+    headers: {
+      accept: 'application/json',
+      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjYTFjZjFiOWYxNjk5Y2ZiOTEwMzI2NzJkZDA5MWQ0ZCIsIm5iZiI6MTc0MjMyNzA5Ny44OTEsInN1YiI6IjY3ZDljZDM5M2QyNTQ2ODIzMWQ0YmEwOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.opxVVZu22N00l54A_VxfzGLxhDABlSsHjnBPMO3lw7w'
+    }
+  };
+
+  const apiUrl = `https://api.themoviedb.org/3/`
+
   const mudaTema = () => {
     const tema = window.matchMedia("(prefers-color-scheme: dark)").matches
       ? "dark"
@@ -20,21 +32,26 @@ const App = () => {
     window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", mudaTema);
   }, []);
 
+
+
   const [search, setSearch] = useState("");
   const [movies, setMovies] = useState([]);
 
-  const apiKey = "e4d577fa";
-  const apiUrl = `https://omdbapi.com/?apikey=${apiKey}`;
+  // const apiKey = "e4d577fa";
+  // const apiUrl = `https://omdbapi.com/?apikey=${apiKey}`;
 
-  useEffect(() => {
-    searchMovies("Barbie");
-  }, []);
+
 
   const searchMovies = async (title) => {
-    const response = await fetch(`${apiUrl}&s=${title}`);
+    const response = await fetch(`${apiUrl}search/tv?query=${title}&language=pt-BR`, options);
     const data = await response.json();
-    setMovies(data.Search);
+    setMovies(data.results);
   };
+
+
+  useEffect(() => {
+    searchMovies("Drama");
+  }, []);
 
   const handleKeyPress = (e) => {
     if (e.key === "Enter") {
@@ -54,13 +71,18 @@ const App = () => {
           type="text"
           placeholder="Pesquise por filmes"
         />
-        <img onClick={() => searchMovies(search)} src={Lupa} alt="Pesquisar" />
+        <img  src={Lupa} alt="Pesquisar" />
+
+        onClick={() => searchMovies(search)}
       </div>
 
       {movies?.length > 0 ? (
         <div className="container">
-          {movies.map((movie, index) => (
-            <MovieCard key={index} apiUrl={apiUrl} {...movie} />
+          {movies.map((movie) => (
+            <MovieCard
+             key={movie.id}
+             movie={movie}
+              />
           ))}
         </div>
       ) : (
